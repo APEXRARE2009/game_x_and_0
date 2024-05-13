@@ -1,0 +1,241 @@
+body {
+	padding: 0;
+	margin: 0;
+	color: white;
+	background: #1a1a1a;
+	font-family: comfortaa, arial;
+	user-select: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: url("../img/bg1.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	object-fit: cover;
+}
+
+.content__header {
+	position: absolute;
+	top: 1%;
+	left: 1.4%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0 0 1.5vw #1a1a1a, 0 0 10vw #1a1a1a inset;
+	padding: 0 0 1vw 0;
+	border-radius: 2vw;
+}
+
+.ico {
+	width: 10vw;
+	height: 10vw;
+}
+
+.ico-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.content {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	gap: 4vw 0;
+}
+
+.content__title {
+	font-size: 1.4vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.content__title-before {
+	font-size: 2.5vw;
+	letter-spacing: .15vw;
+	text-shadow: 0 0 .3vw white;
+}
+
+.content__title span {
+	font-family: "Tilt Prism", comfortaa, arial;
+}
+
+.content__field {
+	display: grid;
+	grid-template-columns: repeat(3, 9.5vw);
+	grid-template-rows: repeat(3, 9.5vw);
+	font-family: "Tilt Prism", comfortaa, arial;
+	border: .1vw solid white;
+	border-radius: 1vw;
+	overflow: hidden;
+	box-shadow: 0 0 .1vw .1vw white inset, 0 0 1vw black;
+}
+
+.content__field-cell {
+	border: .1vw solid white;
+	padding: 1vw .5vw;
+	font-size: 3vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.content__field-cell:hover {
+	box-shadow: 0 0 1vw white inset;
+}
+
+.content__result {
+	font-size: 1.5vw;
+	transform: translateY(-2.2vw);
+	opacity: 0;
+	transition: .6s;
+}
+
+.content__result-open {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.content__field-reset {
+	font-size: 2vw;
+	border: .1vw solid white;
+	width: 14vw;
+	height: 4vw;
+	position: absolute;
+	left: -9.2%;
+	top: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0 2vw;
+	padding: .4vw .4vw .4vw 2vw;
+	border-radius: 0 2vw 1.9vw 0;
+	cursor: pointer;
+	letter-spacing: .2vw;
+	transition: .5s ease;
+	box-shadow: 0 0 1vw black;
+	color: white;
+}
+
+.content__field-reset:hover {
+	left: 0;
+	box-shadow: 0 0 1vw white, .4vw 0 1vw -.8vw black inset;
+	text-shadow: -.1vw .1vw .4vw black;
+}
+
+.content__field-reset:hover > .content__field-reset-ico {
+	transform: rotate(-360deg);
+}
+
+.content__field-reset-ico {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	transition: 1s;
+}
+
+.checking-device {
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background: rgba(0, 0, 0, .4);
+	position: fixed;
+	transition: 1s;
+}
+
+.checking-device-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 80vw;
+	height: 90vw;
+	background: rgba(0, 0, 0, .6);
+	backdrop-filter: blur(3vw);
+	gap: 4vw 0;
+	padding: 4vw;
+	border-radius: 5vw;
+	box-shadow: 0 0 3.2vw white inset;
+	transition: 1s;
+	margin: 4vw 0;
+}
+
+.checking-device-content-txt {
+	font-size: 3.4vw;
+	transition: .5s;
+}
+
+.checking-device-content-btn {
+	width: 20vw;
+	height: 8vw;
+	background: transparent;
+	color: white;
+	border: .4vw solid black;
+	border-radius: 1vw;
+	box-shadow: 0 0 1vw white inset;
+	text-shadow: 0 0 1vw white;
+	animation: 3s borderColor infinite;
+	font-size: 3.2vw;
+	transition: 1s;
+}
+
+@keyframes borderColor {
+	0% {
+		border: .4vw solid black;
+	}
+	50% {
+		border: .4vw solid white;
+	}
+	100% {
+		border: .4vw solid black;
+	}
+}
+
+.checking-device-content-close {
+	transform: scale(0, 0);
+	opacity: 0;
+	font-size: 0;
+	color: transparent;
+	gap: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.checking-device-content-btn-close {
+	transform: scale(0, 0);
+	opacity: 0;
+	color: transparent;
+	overflow: hidden;
+}
+
+.checking-device-content-txt-close {
+	opacity: 0;
+}
+
+.checking-device-close {
+	opacity: 0;
+}
