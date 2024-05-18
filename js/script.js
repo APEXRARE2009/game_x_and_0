@@ -78,6 +78,7 @@ resetBtn.addEventListener("click", () => {
 function resetAll() {
 	fieldCells.map((cell) => {
 		cell.textContent = "";
+		cell.classList.remove("cell-win")
 	})
 	currentCell = 0;
 	result.textContent = "";
@@ -96,10 +97,16 @@ function checkWin() {
 		if (board[a] == playerX && board[b] == playerX && board[c] == playerX) {
 			result.textContent = "Выйиграл игрок X";
 			result.classList.add("content__result-open");
+			fieldCells[a].classList.add("cell-win")
+			fieldCells[b].classList.add("cell-win")
+			fieldCells[c].classList.add("cell-win")
 			field.removeEventListener("click", clickCell);
 		} else if (board[a] == player0 && board[b] == player0 && board[c] == player0) {
 			result.textContent = "Выйиграл игрок 0";
 			result.classList.add("content__result-open");
+			fieldCells[a].classList.add("cell-win")
+			fieldCells[b].classList.add("cell-win")
+			fieldCells[c].classList.add("cell-win")
 			field.removeEventListener("click", clickCell);
 		}
 	})
